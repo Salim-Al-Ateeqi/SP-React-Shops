@@ -1,5 +1,4 @@
 import { Card, Col } from "react-bootstrap";
-import ProductModal from "./ProductModal";
 
 function ProductCard({ product }) {
   return (
