@@ -32,23 +32,23 @@ class ShopStore {
       console.log("ShopStore -> fetchShops -> error", error);
     }
   };
-}
 
-createProduct = async (shop, product) => {
-  try {
-    const formData = new FormData();
-    for (const key in product) {
-      formData.append(key, product[key]);
+  createProduct = async (shop, product) => {
+    try {
+      const formData = new FormData();
+      for (const key in product) {
+        formData.append(key, product[key]);
+      }
+      const res = await instance.post(`/shops/${shop._id}/products`, formData);
+      shop.products.push(res.data);
+    } catch (error) {
+      console.log(
+        "🚀 ~ file: shopStore.js ~ line 45 ~ createProduct= ~ error",
+        error
+      );
     }
-    const res = await instance.post(`/shops/${shop}/products`, formData);
-    shop.product.push(res.data);
-  } catch (error) {
-    console.log(
-      "🚀 ~ file: shopStore.js ~ line 45 ~ createProduct= ~ error",
-      error
-    );
-  }
-};
+  };
+}
 
 const shopStore = new ShopStore();
 shopStore.fetchShops();
