@@ -1,6 +1,5 @@
 import { Button, InputGroup, FormControl, Modal } from "react-bootstrap";
 import { useState } from "react";
-import productStore from "../stores/productStore";
 
 function ProductModal() {
   const [show, setShow] = useState(false);
